@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 8889
+    database_name: turist
+    database_user: vova
+    database_password: 7895521v
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 60a5d06429f63dc27eec95b22c6ec5ea7ba26bc3

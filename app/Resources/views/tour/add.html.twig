@@ -1,0 +1,14 @@
+{# app/Resources/views/tour/add.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Order a ticket</h1>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="flash-notice">
+            <h2>{{ flash_message }}</h2>
+        </div>
+    {% endfor %}
+{% endblock %}
