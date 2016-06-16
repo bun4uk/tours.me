@@ -1,6 +1,6 @@
 <?php
 
-// src/AppBundle/Form/Type/TourType.php
+// src/AppBundle/Form/Type/OrderType.php
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;

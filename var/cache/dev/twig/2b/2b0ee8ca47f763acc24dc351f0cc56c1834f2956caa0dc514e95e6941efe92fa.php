@@ -21,20 +21,20 @@ class __TwigTemplate_3821f14d35494a3862f441fd0f2e2ff7e25a8e8cdcd16dbe034f96968bf
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1554c10b47beaac8e1cd618ddf4a6de430e9c6204b897ffc1b944eb9a6ba4519 = $this->env->getExtension("native_profiler");
-        $__internal_1554c10b47beaac8e1cd618ddf4a6de430e9c6204b897ffc1b944eb9a6ba4519->enter($__internal_1554c10b47beaac8e1cd618ddf4a6de430e9c6204b897ffc1b944eb9a6ba4519_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "tour/archive.html.twig"));
+        $__internal_3928151009584a7a3e8689493665901d633fae2e65d5a91ffd380d79709ddf5a = $this->env->getExtension("native_profiler");
+        $__internal_3928151009584a7a3e8689493665901d633fae2e65d5a91ffd380d79709ddf5a->enter($__internal_3928151009584a7a3e8689493665901d633fae2e65d5a91ffd380d79709ddf5a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "tour/archive.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_1554c10b47beaac8e1cd618ddf4a6de430e9c6204b897ffc1b944eb9a6ba4519->leave($__internal_1554c10b47beaac8e1cd618ddf4a6de430e9c6204b897ffc1b944eb9a6ba4519_prof);
+        $__internal_3928151009584a7a3e8689493665901d633fae2e65d5a91ffd380d79709ddf5a->leave($__internal_3928151009584a7a3e8689493665901d633fae2e65d5a91ffd380d79709ddf5a_prof);
 
     }
 
     // line 4
     public function block_body($context, array $blocks = array())
     {
-        $__internal_1c752308ed635dc106836c283fc91d4ed9a7a0600dcea7b6b82e4d6b8632cf8f = $this->env->getExtension("native_profiler");
-        $__internal_1c752308ed635dc106836c283fc91d4ed9a7a0600dcea7b6b82e4d6b8632cf8f->enter($__internal_1c752308ed635dc106836c283fc91d4ed9a7a0600dcea7b6b82e4d6b8632cf8f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_bb14684c93a34753b15959db3bd7eea8b228d5649b3606c8f195889eb6d46694 = $this->env->getExtension("native_profiler");
+        $__internal_bb14684c93a34753b15959db3bd7eea8b228d5649b3606c8f195889eb6d46694->enter($__internal_bb14684c93a34753b15959db3bd7eea8b228d5649b3606c8f195889eb6d46694_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 5
         echo "    <h1>Welcome!</h1>
@@ -69,43 +69,50 @@ class __TwigTemplate_3821f14d35494a3862f441fd0f2e2ff7e25a8e8cdcd16dbe034f96968bf
             <th>Client name</th>
             <th>Client Email</th>
             <th>Tickets count</th>
+            <th>Order's Time</th>
             </thead>
             <tbody>
             ";
-            // line 31
+            // line 32
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["tours"]) ? $context["tours"] : $this->getContext($context, "tours")));
             foreach ($context['_seq'] as $context["_key"] => $context["tour"]) {
-                // line 32
+                // line 33
                 echo "                <tr>
                     <td>
                         ";
-                // line 34
+                // line 35
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tour"], "id", array()), "html", null, true);
                 echo "
                     </td>
                     <td>
                         ";
-                // line 37
+                // line 38
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tour"], "type", array()), "html", null, true);
                 echo "
                     </td>
                     <td>
                         ";
-                // line 40
+                // line 41
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tour"], "name", array()), "html", null, true);
                 echo "
                     </td>
                     <td>
                         ";
-                // line 43
+                // line 44
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tour"], "email", array()), "html", null, true);
                 echo "
                     </td>
                     <td>
                         ";
-                // line 46
+                // line 47
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tour"], "count", array()), "html", null, true);
+                echo "
+                    </td>
+                    <td>
+                        ";
+                // line 50
+                echo twig_escape_filter($this->env, $this->getAttribute($context["tour"], "time", array()), "html", null, true);
                 echo "
                     </td>
                 </tr>
@@ -114,16 +121,16 @@ class __TwigTemplate_3821f14d35494a3862f441fd0f2e2ff7e25a8e8cdcd16dbe034f96968bf
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tour'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 50
+            // line 54
             echo "            </tbody>
         </table>
     ";
         }
-        // line 53
+        // line 57
         echo "
 ";
         
-        $__internal_1c752308ed635dc106836c283fc91d4ed9a7a0600dcea7b6b82e4d6b8632cf8f->leave($__internal_1c752308ed635dc106836c283fc91d4ed9a7a0600dcea7b6b82e4d6b8632cf8f_prof);
+        $__internal_bb14684c93a34753b15959db3bd7eea8b228d5649b3606c8f195889eb6d46694->leave($__internal_bb14684c93a34753b15959db3bd7eea8b228d5649b3606c8f195889eb6d46694_prof);
 
     }
 
@@ -139,7 +146,7 @@ class __TwigTemplate_3821f14d35494a3862f441fd0f2e2ff7e25a8e8cdcd16dbe034f96968bf
 
     public function getDebugInfo()
     {
-        return array (  123 => 53,  118 => 50,  108 => 46,  102 => 43,  96 => 40,  90 => 37,  84 => 34,  80 => 32,  76 => 31,  64 => 21,  60 => 19,  58 => 18,  43 => 6,  40 => 5,  34 => 4,  11 => 2,);
+        return array (  130 => 57,  125 => 54,  115 => 50,  109 => 47,  103 => 44,  97 => 41,  91 => 38,  85 => 35,  81 => 33,  77 => 32,  64 => 21,  60 => 19,  58 => 18,  43 => 6,  40 => 5,  34 => 4,  11 => 2,);
     }
 }
 /* {# app/Resources/views/tour/archive.html.twig #}*/
@@ -170,6 +177,7 @@ class __TwigTemplate_3821f14d35494a3862f441fd0f2e2ff7e25a8e8cdcd16dbe034f96968bf
 /*             <th>Client name</th>*/
 /*             <th>Client Email</th>*/
 /*             <th>Tickets count</th>*/
+/*             <th>Order's Time</th>*/
 /*             </thead>*/
 /*             <tbody>*/
 /*             {% for tour in tours %}*/
@@ -188,6 +196,9 @@ class __TwigTemplate_3821f14d35494a3862f441fd0f2e2ff7e25a8e8cdcd16dbe034f96968bf
 /*                     </td>*/
 /*                     <td>*/
 /*                         {{ tour.count }}*/
+/*                     </td>*/
+/*                     <td>*/
+/*                         {{ tour.time }}*/
 /*                     </td>*/
 /*                 </tr>*/
 /*             {% endfor %}*/

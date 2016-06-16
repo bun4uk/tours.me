@@ -26,6 +26,7 @@
             <th>Client name</th>
             <th>Client Email</th>
             <th>Tickets count</th>
+            <th>Order's Time</th>
             </thead>
             <tbody>
             {% for tour in tours %}
@@ -44,6 +45,9 @@
                     </td>
                     <td>
                         {{ tour.count }}
+                    </td>
+                    <td>
+                        {{ tour.time }}
                     </td>
                 </tr>
             {% endfor %}

@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="tour")
+ * @ORM\Table(name="Tour")
  * @ORM\HasLifecycleCallbacks()
  */
 class Tour
