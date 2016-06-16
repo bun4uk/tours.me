@@ -23,12 +23,15 @@ class DefaultController extends Controller
 
         $tours = $repository->findAll();
 
+        $typeRepo = $this->getDoctrine()
+            ->getRepository('AppBundle:Type');
+
         $data = [];
         foreach ($tours as $key => $tour) {
             $data[$key]['id'] = $tour->getId();
             $data[$key]['name'] = $tour->getName();
             $data[$key]['email'] = $tour->getEmail();
-            $data[$key]['type'] = $tour->getType();
+            $data[$key]['type'] = $tour->getType()->getName();
             $data[$key]['count'] = $tour->getCount();
             $data[$key]['time'] = $tour->getCreatedAt()->format('d.m.Y h:m');
         }

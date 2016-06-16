@@ -39,12 +39,13 @@ class Tour
     /**
      * @ORM\Column(type="string", length=20)
      */
-    private $type;
+    private $count;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="tours")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
-    private $count;
+    private $type;
 
     /**
      * @ORM\Column(type="datetime", name="createdAt")
