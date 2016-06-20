@@ -114,6 +114,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::addAction',  '_route' => 'add tour',);
         }
 
+        // available tours
+        if (0 === strpos($pathinfo, '/tours') && preg_match('#^/tours(?:/(?P<tour>\\w+))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'available tours')), array (  'tour' => '',  '_controller' => 'AppBundle\\Controller\\DefaultController::toursListAction',));
+        }
+
+        // approve order
+        if (0 === strpos($pathinfo, '/approve') && preg_match('#^/approve(?:/(?P<id>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'approve order')), array (  'id' => '',  '_controller' => 'AppBundle\\Controller\\DefaultController::approveAction',));
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

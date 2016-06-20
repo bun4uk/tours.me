@@ -23,9 +23,6 @@ class DefaultController extends Controller
 
         $tours = $repository->findAll();
 
-        $typeRepo = $this->getDoctrine()
-            ->getRepository('AppBundle:Type');
-
         $data = [];
         foreach ($tours as $key => $tour) {
             $data[$key]['id'] = $tour->getId();
@@ -34,10 +31,11 @@ class DefaultController extends Controller
             $data[$key]['type'] = $tour->getType()->getName();
             $data[$key]['count'] = $tour->getCount();
             $data[$key]['time'] = $tour->getCreatedAt()->format('d.m.Y h:m');
+            $data[$key]['status'] = $tour->getStatus();
         }
 
         //Вывод данных в шаблон
-        return $this->render('tour/archive.html.twig',
+        return $this->render('tour/orders.html.twig',
             ['tours' => $data]
         );
     }
@@ -67,4 +65,75 @@ class DefaultController extends Controller
             ]
         );
     }
+
+    /**
+     * @Route("/tours/{tour}",
+     *     name="available tours",
+     *     defaults={"tour"=""},
+     *     requirements={"tour": "\w+"}
+     * )
+     */
+    public function toursListAction($tour)
+    {
+        $data = [];
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Type');
+
+        if ('' != $tour) {
+            $tour = $repository->findOneByName($tour);
+
+            $data['id'] = $tour->getId();
+            $data['name'] = $tour->getName();
+            $data['price'] = $tour->getPrice();
+            $data['description'] = $tour->getDescription();
+            $data['date'] = $tour->getDate()->format('d.m.Y h:m');
+            $data['duration'] = $tour->getDuration();
+
+            return $this->render('tour/single_tour.html.twig',
+                ['tour' => $data]
+            );
+
+        } else {
+            $tours = $repository->findAll();
+
+            foreach ($tours as $key => $tour) {
+                $data[$key]['id'] = $tour->getId();
+                $data[$key]['name'] = $tour->getName();
+                $data[$key]['price'] = $tour->getPrice();
+                $data[$key]['description'] = $tour->getDescription();
+                $data[$key]['date'] = $tour->getDate()->format('d.m.Y h:m');
+                $data[$key]['duration'] = $tour->getDuration();
+            }
+
+            return $this->render('tour/archive.html.twig',
+                ['tours' => $data]
+            );
+        }
+
+    }
+
+    /**
+     * @Route("/approve/{id}",
+     *     name="approve order",
+     *     defaults={"id"=""},
+     * )
+     */
+    public function approveAction($id)
+    {
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Tour');
+        $em = $this->getDoctrine()->getManager();
+        $order = $repository->findOneById($id);
+        $status = $order->getStatus();
+
+        if (false == $status) {
+            $order->setStatus(1);
+        } else {
+            $order->setStatus(0);
+        }
+        $em->persist($order);
+        $em->flush();
+        return $this->redirectToRoute('tour home', [], 301);
+    }
+
 }

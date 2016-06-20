@@ -6,12 +6,14 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Doctrine\ORM\EntityRepository;
 
 class TourType extends AbstractType
 {
@@ -36,16 +38,12 @@ class TourType extends AbstractType
                     'label' => 'Your email'
                 ]
             )
-            ->add('type', ChoiceType::class, [
-                    'choices' => [
-                        'Spain' => 'poland',
-                        'Italy' => 'italy',
-                        'France' => 'france',
-                        'USA' => 'usa',
-                        'Poland' => 'poland',
-                    ],
-                    'label' => 'Country'
+            ->add('type', EntityType::class, [
+                    'class' => 'AppBundle:Type',
+                    'multiple' => false,
+                    'required' => true,
                 ]
+
             )
             ->add('count', IntegerType::class,
                 [

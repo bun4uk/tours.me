@@ -1,0 +1,66 @@
+{# app/Resources/views/tour/archive.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Welcome!</h1>
+    <p><a href="{{ path('add tour') }}">Order a ticket</a></p>
+    <p><a href="{{ path('available tours') }}">Tours list</a></p>
+    <h2>Orders archive</h2>
+
+    {% if tours == NULL %}
+        No tours <br>
+    {% else %}
+
+        <table>
+            <thead>
+            <th>Order ID</th>
+            <th>Country</th>
+            <th>Client name</th>
+            <th>Client Email</th>
+            <th>Tickets count</th>
+            <th>Order's Time</th>
+            <th>Status</th>
+            </thead>
+            <tbody>
+            {% for tour in tours %}
+                <tr>
+                    <td>
+                        {{ tour.id }}
+                    </td>
+                    <td>
+                        {{ tour.type }}
+                    </td>
+                    <td>
+                        {{ tour.name }}
+                    </td>
+                    <td>
+                        {{ tour.email }}
+                    </td>
+                    <td>
+                        {{ tour.count }}
+                    </td>
+                    <td>
+                        {{ tour.time }}
+                    </td>
+                    <td>
+                        {% if false == tour.status %}
+                            new
+                        {% else %}
+                            approved
+                        {% endif %}
+
+                    </td>
+                    <td>
+                        {% if false == tour.status %}
+                            <a href="{{ path('approve order') }}/{{ tour.id }}">Approve</a>
+                        {% else %}
+                            <a href="{{ path('approve order') }}/{{ tour.id }}">Unapprove</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}

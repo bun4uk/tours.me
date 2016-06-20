@@ -30,7 +30,7 @@ class Type
     private $name;
 
     /**
-     * @ORM\Column(type="decimal", scale=5)
+     * @ORM\Column(type="decimal", scale=2)
      */
     private $price;
 
@@ -45,7 +45,7 @@ class Type
     private $date;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
+     * @ORM\Column(type="integer")
      */
     private $duration;
 
@@ -218,5 +218,13 @@ class Type
     public function getTours()
     {
         return $this->tours;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+      return $this->getName();
     }
 }

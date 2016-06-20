@@ -53,6 +53,11 @@ class Tour
     private $createdAt;
 
     /**
+     * @ORM\Column(type="boolean", name="status")
+     */
+    private $status;
+
+    /**
      * Get id
      *
      * @return integer
@@ -188,5 +193,29 @@ class Tour
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set status
+     *
+     * @param \bool $status
+     *
+     * @return Tour
+     */
+    public function setStatus(\bool $status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return \bool
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

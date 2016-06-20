@@ -9,6 +9,7 @@
     {% for flash_message in app.session.flashBag.get('notice') %}
         <div class="flash-notice">
             <h2>{{ flash_message }}</h2>
+            <a href="{{ path('tour home') }}">Back to the main page</a>
         </div>
     {% endfor %}
 {% endblock %}

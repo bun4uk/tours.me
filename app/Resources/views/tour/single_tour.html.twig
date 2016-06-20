@@ -1,0 +1,28 @@
+{# app/Resources/views/tour/archive.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if tour == NULL %}
+        No tours <br>
+    {% else %}
+        <h1>{{ tour.name }}</h1>
+        <h3>Description</h3>
+        <p>
+            {{ tour.description }}
+        </p>
+        <h3>Tour date</h3>
+        <p>
+            {{ tour.date }}
+        </p>
+        <h3>Tour duration</h3>
+        <p>
+            {{ tour.duration }} days
+        </p>
+        <h3>Tour Price</h3>
+        <p>
+            {{ tour.price }}$
+        </p>
+
+    {% endif %}
+
+{% endblock %}
