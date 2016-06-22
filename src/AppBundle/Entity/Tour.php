@@ -148,6 +148,14 @@ class Tour
     }
 
     /**
+     * @ORM\PrePersist
+     */
+    public function setStatusValue()
+    {
+        $this->status = false;
+    }
+
+    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
